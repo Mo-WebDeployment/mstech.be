@@ -22,10 +22,15 @@ jobs:
           source: "./website-files/*"  # Your website files
           target: "/var/www/html/${{ secrets.WEBSITE_NAME }}/"
 
+      - name: Create SSH Key File
+        run: |
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
+
       - name: Test SSH Connection
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} root@${{ secrets.DROPLET_IP }} "echo 'SSH connection successful'"
-
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@${{ secrets.DROPLET_IP }} "echo 'SSH connection successful'"
+          
       - name: Set up Apache Virtual Host
         run: |
           ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
