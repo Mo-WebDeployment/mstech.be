@@ -35,8 +35,9 @@ jobs:
           
       - name: Create SSH Key File
         run: |
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-            chmod 600 ~/.ssh/id_ed25519
+          mkdir -p ~/.ssh 
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
           
       - name: Set up Apache Virtual Host
         run: |
