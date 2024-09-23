@@ -1,0 +1,52 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v0.1.0
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./website-files/*"  # Your website files
+          target: "/var/www/html/${{ secrets.WEBSITE_NAME }}/"
+
+      - name: Set up Apache Virtual Host
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
+          sudo tee /etc/apache2/sites-available/${{ secrets.WEBSITE_NAME }}.conf > /dev/null <<EOT
+          <VirtualHost *:80>
+              ServerAdmin webmaster@${{ secrets.WEBSITE_NAME }}
+              ServerName ${{ secrets.WEBSITE_NAME }}
+              DocumentRoot /var/www/html/${{ secrets.WEBSITE_NAME }}
+              ErrorLog ${APACHE_LOG_DIR}/error.log
+              CustomLog ${APACHE_LOG_DIR}/access.log combined
+          </VirtualHost>
+          EOT
+          sudo a2ensite ${{ secrets.WEBSITE_NAME }}.conf
+          sudo systemctl reload apache2
+          EOF
+
+      - name: Restart Apache
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
+          sudo systemctl restart apache2
+          EOF
+
+      - name: Obtain SSL Certificate (Optional)
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
+          sudo apt install certbot python3-certbot-apache -y
+          sudo certbot --apache -d ${{ secrets.WEBSITE_NAME }} -m admin@${{ secrets.WEBSITE_NAME }} --agree-tos --non-interactive
+          EOF
