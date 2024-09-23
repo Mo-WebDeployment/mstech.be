@@ -22,6 +22,10 @@ jobs:
           source: "./website-files/*"  # Your website files
           target: "/var/www/html/${{ secrets.WEBSITE_NAME }}/"
 
+      - name: Test SSH Connection
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} root@${{ secrets.DROPLET_IP }} "echo 'SSH connection successful'"
+
       - name: Set up Apache Virtual Host
         run: |
           ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
