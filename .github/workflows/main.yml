@@ -32,11 +32,15 @@ jobs:
           proxy_port: 22                               # Set if you are using an SSH proxy, otherwise it can be removed
           proxy_timeout: 30s                           # Set proxy timeout if using a proxy
           proxy_use_insecure_cipher: false              # Set if using an insecure cipher through a proxy, can be removed if no proxy
-
+          
+      - name: Create SSH Key File
+        run: |
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
           
       - name: Set up Apache Virtual Host
         run: |
-          ssh -o StrictHostKeyChecking=no root@${{ secrets.DROPLET_IP }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 root@${{ secrets.DROPLET_IP }} << 'EOF'
           sudo tee /etc/apache2/sites-available/${{ secrets.WEBSITE_NAME }}.conf > /dev/null <<EOT
           <VirtualHost *:80>
               ServerAdmin webmaster@${{ secrets.WEBSITE_NAME }}
