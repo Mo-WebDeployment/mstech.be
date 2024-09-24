@@ -1,0 +1,62 @@
+
+
+/* owl Buttons Navigation */
+.owl-buttons {
+      background: transparent;
+    position: absolute;
+    right: 0;
+    top: -35px;
+    z-index: 2;
+}
+.owl-carousel {
+    cursor: grab;
+}
+.owl-buttons > div {
+    background-position: 9px 6px;
+    background-repeat: no-repeat;
+    border: 1px solid #D3D3D3;
+	
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+	
+    color: rgba(0, 0, 0, 0);
+    float: left;
+    height: 24px;
+    margin-bottom: 5px;
+    margin-left: 11px;
+	
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+	
+    width: 27px;
+}
+.owl-buttons > .owl-prev {
+    background-image: url("../images/arrow-prev.png");
+}
+.owl-buttons > .owl-prev:hover {
+    background-image: url("../images/arrow-prev-h.png");
+}
+.owl-buttons > .owl-next {
+    background-image: url("../images/arrow-next.png");
+}
+.owl-buttons .owl-next:hover {
+    background-image: url("../images/arrow-next-h.png");
+}
+.owl-buttons > div:hover {
+
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+
+
+

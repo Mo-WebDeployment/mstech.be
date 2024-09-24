@@ -1,0 +1,178 @@
+
+@font-face {
+  font-family: 'ERASMD';
+  src: url('font/ERASMD.eot'); /* IE9 Compat Modes */
+  src: url('font/ERASMD.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('font/ERASMD.woff') format('woff'), /* Modern Browsers */
+       url('font/ERASMD.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('font/ERASMD.svg#svgFontName') format('svg');
+
+}
+
+/* ## Service Style 2 ## */
+.services-style2 .service-box  {
+	text-align: left; font-family: 'ERASMD';
+}
+.services-style2 .service-box > img,
+.services-style2 .service-box > span {
+	position: absolute;
+	left: 15px;
+	border-radius: 100%;
+	border: 3px solid #fff;
+	top: 19px;
+}
+
+.services-style2 .service-box-inner {
+	width: 85%;
+	float: right;
+	margin-top: 0;
+	padding: 5px 20px 0 75px; background-color:#;
+}
+
+.services-style2 .service-box-inner h4 {
+	margin: 20px 0;
+}
+
+.services-style2 .service-box-inner a {
+	margin-top: 20px;
+	display: inline-block;
+}
+
+.services-style2 .service-box-inner p {
+	line-height: 20px;
+}
+
+
+
+
+
+/* ## Service Section ## */
+.service-section .section-header {
+	margin-bottom: 60px;
+}
+
+.services-style2,
+.service-box  {
+	position: relative; float:left;
+}
+.services-style1,
+.service-box  {
+	position: relative; float:left;
+}
+.service-box {
+	text-align: center;
+	display: inline-block;
+}
+
+.service-box img {
+    position: relative;
+    z-index: 2;
+    opacity: 0.6;
+    object-position: center;
+    object-fit: cover;
+    transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    border: #444444 solid 1px;
+    border-radius: 6px;
+}
+
+
+
+
+	
+	.service-box:hover img {
+		opacity:1;
+	}
+
+
+.service-box-inner {
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.50);
+	display: inline-block;
+	width: 100%;
+	margin-top: -60px;
+	padding: 10px 25px 0 ; 
+}
+
+.service-box-inner h4 {
+	margin-bottom: 36px; 
+}
+.service-box-inner h6 {
+	margin-bottom: 16px; padding-top:40px; line-height:24px; font-size:14px; text-align:left; text-align:justify; color:#fff;  font-family: 'ERASMD'; letter-spacing:.5px;
+}
+.service-box-inner a {
+	margin: 0 auto;
+	display: inline-block;
+	background-color: #055158;
+	padding: 7px 20px;
+	text-decoration: none;
+	letter-spacing: 1px;color:#fff;  -webkit-border-radius: 10px 0px;
+-moz-border-radius: 10px 0px;
+border-radius: 10px 0px; font-family: 'ERASMD';
+}
+
+.service-box-inner strong {
+	margin: 0 auto;
+	display: inline-block;
+	background-color: #09757f;
+	padding: 7px 20px;
+	text-decoration: none;
+	letter-spacing: 1px; color:#fff; -webkit-border-radius: 5px 0px;
+-moz-border-radius: 5px 0px;
+border-radius: 5px 0px; font-family: 'ERASMD';
+}
+
+
+.service-box-inner a:hover {
+	background-color: #eff1f1; color:#08757f;
+}
+
+.service-box {
+	padding: 3px 20px;
+}
+
+.service-section .owl-theme .owl-controls .owl-buttons,
+.team-section .owl-theme .owl-controls .owl-buttons,
+.partner-section .owl-theme .owl-controls .owl-buttons {
+	position: absolute;
+	top: -100px;
+	right: 0;
+}
+
+.service-section .owl-theme .owl-controls .owl-buttons div,
+.team-section .owl-theme .owl-controls .owl-buttons div,
+.partner-section .owl-theme .owl-controls .owl-buttons div {
+	width: 34px;
+	height: 34px;
+	position: relative;
+	color: #000;
+	box-shadow: 0 4px 0 rgba(33,150,243,0.25);
+	border: 2px solid #2196f3;
+	margin: 0 5px;
+}
+
+.service-section .owl-theme .owl-controls .owl-buttons .owl-next:before,
+.service-section .owl-theme .owl-controls .owl-buttons .owl-prev:before,
+.team-section .owl-theme .owl-controls .owl-buttons .owl-next:before,
+.team-section .owl-theme .owl-controls .owl-buttons .owl-prev:before,
+.partner-section .owl-theme .owl-controls .owl-buttons .owl-next:before,
+.partner-section .owl-theme .owl-controls .owl-buttons .owl-prev:before {
+	content: "\f104";
+	font-family: 'FontAwesome';
+	font-size: 20px;
+	color: #000;
+	line-height: 30px;
+}
+
+.service-section .owl-theme .owl-controls .owl-buttons .owl-next:before,
+.team-section .owl-theme .owl-controls .owl-buttons .owl-next:before,
+.partner-section .owl-theme .owl-controls .owl-buttons .owl-next:before  {
+	content: "\f105";	
+}
+
+
+
+
+
+
+
+
